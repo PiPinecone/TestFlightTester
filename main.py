@@ -4,14 +4,17 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
 
+# Yaml config loading
 with open('config.yaml') as f:
     data = yaml.load(f, Loader=yaml.FullLoader)
 
 
+# Configuring webdriver
 opt = Options()
 opt.add_argument('--headless')
 driver = webdriver.Chrome(executable_path=data['DriverPath'], options=opt)
 
+# Determining whether the beta is open or closed
 driver.get(data['BetaURL'])
 elem = driver.find_element(By.XPATH, "//div[@class='beta-status']")
 print(elem.text)
