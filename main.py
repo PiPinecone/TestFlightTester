@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
 
-with open('config.yaml') as f:
+with open('config.yaml') as f
     data = yaml.load(f, Loader=yaml.FullLoader)
 
 
